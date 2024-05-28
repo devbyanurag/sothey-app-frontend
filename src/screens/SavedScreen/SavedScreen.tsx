@@ -8,18 +8,8 @@ import { styles } from '../HomeScreen/HomeScreen';
 type SavedScreenProps = NativeStackScreenProps<RootStackParamList, "SavedScreen">;
 
 export default function SavedScreen(props: SavedScreenProps) {
-  const Images = {
-    carousal1: require('../../../assets/images/HomeContainer/carousal1.png'),
-    carousal2: require('../../../assets/images/HomeContainer/carousal2.png'),
-    checkIcon: require('../../../assets/icons/check.png'),
-    enterIcon: require('../../../assets/icons/enter.png'),
-    closeIcon: require('../../../assets/icons/close.png')
-  };
   const [activeIndexFeatureFrag, setActiveIndexFeatureFrag] = useState<number>(0);
 
-  const handleFreatureFragPress = (index: number) => {
-    setActiveIndexFeatureFrag(index);
-  };
 
   const [activeFragCon, setActiveFragCon] = useState<number | null>(null);
 
@@ -27,11 +17,7 @@ export default function SavedScreen(props: SavedScreenProps) {
     setActiveFragCon(index);
   };
 
-  const featureFrag = [
-    "ON-GOING BIDS", "COMING SOON", 'CLOSED'
-  ]
-  console.log(propertiesData.find(property => property.id === 3))
-
+  
 
   return (
     <ScrollView style={styles.container}>

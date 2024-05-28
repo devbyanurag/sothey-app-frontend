@@ -5,7 +5,7 @@ import AuthScreen from './src/screens/AuthScreen/AuthScreen';
 import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 import { useFonts } from 'expo-font';
 import customFonts from './src/utils/fonts'
-import { ActivityIndicator, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, ImageBackground, StatusBar, StyleSheet, Text, View } from 'react-native';
 import MainScreen from './src/screens/MainScreen/MainScreen';
 import PropertyOverViewScreen from './src/screens/PropertyOverViewScreen/PropertyOverViewScreen';
 
@@ -18,15 +18,25 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   let [fontsLoaded] = useFonts(customFonts);
+  // if (!fontsLoaded) {
+  //   return (
+  //     <View style={styles.loadingContainer}>
+  //       <ActivityIndicator size="large" color="#0000ff" />
+  //       <Text style={styles.loadingText}>Loading...</Text>
+  //     </View>
+  //   );
+  // }
+
   if (!fontsLoaded) {
     return (
-      <View style={styles.loadingContainer}>
+      <ImageBackground source={require('./assets/splash.jpg')}
+        resizeMode="cover"
+        style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0000ff" />
         <Text style={styles.loadingText}>Loading...</Text>
-      </View>
+      </ImageBackground >
     );
   }
-
 
 
   return (
@@ -56,6 +66,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    height:'100%',
+    width:'100%'
   },
   loadingText: {
     marginTop: 10,

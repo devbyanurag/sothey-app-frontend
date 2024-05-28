@@ -29,9 +29,7 @@ export default function HomeScreen(props: HomeScreenProps) {
   const featureFrag = [
     "ON-GOING BIDS", "COMING SOON", 'CLOSED'
   ]
-  console.log(propertiesData.find(property => property.id === 3))
-
-
+  
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>

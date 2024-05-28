@@ -19,8 +19,6 @@ export default function AnalyticsScreen(props: AnalyticsScreenProps) {
 
 
 
-  console.log(propertiesData.find(property => property.id === 3))
-
 
   return (
     <ScrollView style={styles.container}>
