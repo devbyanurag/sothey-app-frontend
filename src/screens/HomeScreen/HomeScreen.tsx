@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Button, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import { PropertyType, RootStackParamList } from '../../utils/types';
 import React, { Fragment, useState } from 'react';
 import { propertiesData } from '../../utils/DataProperties';
@@ -29,6 +29,8 @@ export default function HomeScreen(props: HomeScreenProps) {
   const featureFrag = [
     "ON-GOING BIDS", "COMING SOON", 'CLOSED'
   ]
+  console.log(propertiesData.find(property => property.id === 3))
+
 
   return (
     <ScrollView style={styles.container}>
@@ -40,52 +42,66 @@ export default function HomeScreen(props: HomeScreenProps) {
         <Text style={styles.topicTextheadingpara1}>Check out prime real estate shares that are being noticed</Text>
       </View>
       <ScrollView horizontal={true} style={styles.carousalContainer}>
-        <ImageBackground source={Images.carousal1} resizeMode="cover" style={[styles.carousalCard, styles.carousalCard1]}>
-          <Image source={Images.carousal1} style={styles.imageWithOpacity} />
-          <View style={styles.carousalTop}>
-            <Text style={styles.carousalTopTxt1}>Jor Bagh</Text>
-            <Text style={styles.carousalTopTxt2}>New Delhi, DL, India</Text>
-          </View>
-          <View style={styles.carousalmiddle}>
-            <Text style={styles.carousalmiddleText}>2,900 Sqft</Text>
-            <View style={styles.carousalmiddleDot}></View>
-            <Text style={styles.carousalmiddleText}>0.13 Acre(s)</Text>
+        <TouchableOpacity activeOpacity={1} onPress={() => {
+          const propertyDataFind = propertiesData.find(property => property.id === 3);
+          if (propertyDataFind) {
+            props.navigation.push('PropertyOverViewScreen', { propertyData: propertyDataFind })
+          }
+        }}>
+          <ImageBackground source={Images.carousal1} resizeMode="cover" style={[styles.carousalCard, styles.carousalCard1]}>
+            <Image source={Images.carousal1} style={styles.imageWithOpacity} />
+            <View style={styles.carousalTop}>
+              <Text style={styles.carousalTopTxt1}>Jor Bagh</Text>
+              <Text style={styles.carousalTopTxt2}>New Delhi, DL, India</Text>
+            </View>
+            <View style={styles.carousalmiddle}>
+              <Text style={styles.carousalmiddleText}>2,900 Sqft</Text>
+              <View style={styles.carousalmiddleDot}></View>
+              <Text style={styles.carousalmiddleText}>0.13 Acre(s)</Text>
 
-          </View>
-          <View style={styles.carousalbottom}>
-            <View style={styles.carousalCardBox1}>
-              <Image source={Images.checkIcon} style={styles.carousalCardBox1Img} />
-              <Text style={styles.carousalCardBox1Txt}>Fractional Investment Available </Text>
             </View>
-            <View style={styles.carousalCardBox2}>
-              <Image source={Images.enterIcon} style={styles.carousalCardBox2Img} />
-              <Text style={styles.carousalCardBox2Txt}>1,207 people registered </Text>
+            <View style={styles.carousalbottom}>
+              <View style={styles.carousalCardBox1}>
+                <Image source={Images.checkIcon} style={styles.carousalCardBox1Img} />
+                <Text style={styles.carousalCardBox1Txt}>Fractional Investment Available </Text>
+              </View>
+              <View style={styles.carousalCardBox2}>
+                <Image source={Images.enterIcon} style={styles.carousalCardBox2Img} />
+                <Text style={styles.carousalCardBox2Txt}>1,207 people registered </Text>
+              </View>
             </View>
-          </View>
-        </ImageBackground>
-        <ImageBackground source={Images.carousal2} resizeMode="cover" style={[styles.carousalCard]}>
-          <Image source={Images.carousal2} style={styles.imageWithOpacity} />
-          <View style={styles.carousalTop}>
-            <Text style={styles.carousalTopTxt1}>Civil</Text>
-            <Text style={styles.carousalTopTxt2}>New Delhi, DL, India</Text>
-          </View>
-          <View style={styles.carousalmiddle}>
-            <Text style={styles.carousalmiddleText}>14,961 Sq</Text>
-            <View style={styles.carousalmiddleDot}></View>
-            <Text style={styles.carousalmiddleText}>0.13 Acre(s)</Text>
+          </ImageBackground>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => {
+          const propertyDataFind = propertiesData.find(property => property.id === 1);
+          if (propertyDataFind) {
+            props.navigation.push('PropertyOverViewScreen', { propertyData: propertyDataFind })
+          }
+        }}>
+          <ImageBackground source={Images.carousal2} resizeMode="cover" style={[styles.carousalCard]}>
+            <Image source={Images.carousal2} style={styles.imageWithOpacity} />
+            <View style={styles.carousalTop}>
+              <Text style={styles.carousalTopTxt1}>Civil</Text>
+              <Text style={styles.carousalTopTxt2}>New Delhi, DL, India</Text>
+            </View>
+            <View style={styles.carousalmiddle}>
+              <Text style={styles.carousalmiddleText}>14,961 Sq</Text>
+              <View style={styles.carousalmiddleDot}></View>
+              <Text style={styles.carousalmiddleText}>0.13 Acre(s)</Text>
 
-          </View>
-          <View style={styles.carousalbottom}>
-            <View style={styles.carousalCardBox1}>
-              <Image source={Images.closeIcon} style={styles.carousalCardBox1Img} />
-              <Text style={styles.carousalCardBox1Txt}>Fractional Investment UnAvailable </Text>
             </View>
-            <View style={styles.carousalCardBox2}>
-              <Image source={Images.enterIcon} style={styles.carousalCardBox2Img} />
-              <Text style={styles.carousalCardBox2Txt}>1,207 people registered </Text>
+            <View style={styles.carousalbottom}>
+              <View style={styles.carousalCardBox1}>
+                <Image source={Images.closeIcon} style={styles.carousalCardBox1Img} />
+                <Text style={styles.carousalCardBox1Txt}>Fractional Investment UnAvailable </Text>
+              </View>
+              <View style={styles.carousalCardBox2}>
+                <Image source={Images.enterIcon} style={styles.carousalCardBox2Img} />
+                <Text style={styles.carousalCardBox2Txt}>1,207 people registered </Text>
+              </View>
             </View>
-          </View>
-        </ImageBackground>
+          </ImageBackground>
+        </TouchableOpacity>
 
       </ScrollView>
 
@@ -102,53 +118,53 @@ export default function HomeScreen(props: HomeScreenProps) {
         ))}
 
       </View>
-      <View style={atyles.propList}>
+      <View style={styles.propList}>
         {propertiesData.filter((propertyDataVal: PropertyType) => {
           return propertyDataVal.featureFrag === activeIndexFeatureFrag;
         }).map((propertyDataVal: PropertyType) => (
           <TouchableOpacity
             key={propertyDataVal.id}
             style={[
-              atyles.propCon,
-              activeFragCon === propertyDataVal.id && atyles.propConActive
+              styles.propCon,
+              activeFragCon === propertyDataVal.id && styles.propConActive
             ]}
             onPress={() => { handleFragCon(propertyDataVal.id) }}>
             <Image source={propertyDataVal.image} style={[
-              atyles.propImg,
-              activeFragCon === propertyDataVal.id && atyles.propImgActive
+              styles.propImg,
+              activeFragCon === propertyDataVal.id && styles.propImgActive
             ]} />
-            <View style={atyles.propDesCon}>
-              <Text style={atyles.propDescHeading}>
-                <Text style={atyles.propDescHeadingBol}>{propertyDataVal.location.split(', ')[0]},</Text> {propertyDataVal.location.split(', ').slice(1).join(', ')}
+            <View style={styles.propDesCon}>
+              <Text style={styles.propDescHeading}>
+                <Text style={styles.propDescHeadingBol}>{propertyDataVal.location.split(', ')[0]},</Text> {propertyDataVal.location.split(', ').slice(1).join(', ')}
               </Text>
-              <View style={atyles.propDesValCon1}>
-                <View style={atyles.propDesValInnerCon1}>
-                  <Text style={atyles.propInnerKey}>Total Value</Text>
-                  <Text style={atyles.propInnerCon1Val}>{propertyDataVal.totalValue}</Text>
+              <View style={styles.propDesValCon1}>
+                <View style={styles.propDesValInnerCon1}>
+                  <Text style={styles.propInnerKey}>Total Value</Text>
+                  <Text style={styles.propInnerCon1Val}>{propertyDataVal.totalValue}</Text>
                 </View>
-                <View style={atyles.propDesValInnerCon1}>
-                  <Text style={atyles.propInnerKey}>Starting at </Text>
-                  <Text style={atyles.propInnerCon1Val}>{propertyDataVal.startingAt}</Text>
+                <View style={styles.propDesValInnerCon1}>
+                  <Text style={styles.propInnerKey}>Starting at </Text>
+                  <Text style={styles.propInnerCon1Val}>{propertyDataVal.startingAt}</Text>
                 </View>
-                <View style={atyles.propDesValInnerCon1}>
-                  <Text style={atyles.propInnerKey}>People Registered</Text>
-                  <Text style={atyles.propInnerCon1Val}>{propertyDataVal.peopleRegistered}<Text style={atyles.propInnerCon1ValBold}>/{propertyDataVal.totalSpots}</Text></Text>
+                <View style={styles.propDesValInnerCon1}>
+                  <Text style={styles.propInnerKey}>People Registered</Text>
+                  <Text style={styles.propInnerCon1Val}>{propertyDataVal.peopleRegistered}<Text style={styles.propInnerCon1ValBold}>/{propertyDataVal.totalSpots}</Text></Text>
                 </View>
               </View>
-              <View style={[atyles.propDesCon2, activeFragCon !== propertyDataVal.id && atyles.displayNone]}>
+              <View style={[styles.propDesCon2, activeFragCon !== propertyDataVal.id && styles.displayNone]}>
                 {propertyDataVal.details.map((detail, index) => (
                   <Fragment key={index}>
-                    <Text style={atyles.propDesCon2Text}>{detail}</Text>
-                    {index < propertyDataVal.details.length - 1 && <View style={atyles.propDesCon2Dot}></View>}
+                    <Text style={styles.propDesCon2Text}>{detail}</Text>
+                    {index < propertyDataVal.details.length - 1 && <View style={styles.propDesCon2Dot}></View>}
                   </Fragment>
                 ))}
               </View>
-              <View style={[atyles.propDesCon3, activeFragCon !== propertyDataVal.id && atyles.displayNone]}>
-                <TouchableOpacity style={atyles.propDesCon3btn} onPress={() => {
+              <View style={[styles.propDesCon3, activeFragCon !== propertyDataVal.id && styles.displayNone]}>
+                <TouchableOpacity style={styles.propDesCon3btn} onPress={() => {
                   props.navigation.push('PropertyOverViewScreen', { propertyData: propertyDataVal });
 
                 }}>
-                  <Text style={atyles.propDesCon3btnTxt}>LEARN MORE</Text>
+                  <Text style={styles.propDesCon3btnTxt}>LEARN MORE</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -162,108 +178,9 @@ export default function HomeScreen(props: HomeScreenProps) {
   );
 }
 
-const atyles = StyleSheet.create({
-  propList: {
-    display: 'flex',
-    flex: 1,
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-  }
-  , propCon: {
-    padding: 12,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start'
-    ,
-  },
-  propConActive: {
-    borderWidth: 1,
-    borderColor: 'black',
 
-  },
-  propImg: {
-    height: 95,
-    width: 140
-  },
-  propImgActive: {
-    height: 130
-  },
-  propDesCon: {
-    display: 'flex',
-    flex: 1,
-    marginLeft: 10
-  }
-  , propDescHeading: {
-    fontSize: 12,
-    fontFamily: 'Butler',
-    letterSpacing: -0.7
-  },
-  propDescHeadingBol: {
-    fontFamily: 'ButlerBold',
-  },
-  propDesValCon1: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  propDesValInnerCon1: {
-    flex: 1,
-    marginTop: 20
-  },
-  propInnerKey: {
-    fontSize: 8,
-    color: '#12121260'
-  },
-  propInnerCon1Val: {
-    fontSize: 8,
-    fontWeight: '500'
 
-  },
-  propInnerCon1ValBold: {
-    color: '#12121280'
-  },
-  displayNone: {
-    display: 'none'
-  },
-  propDesCon2: {
-    display: 'flex',
-    flexDirection: 'row'
-    , marginTop: 20,
-    alignItems: 'center'
-  },
-  propDesCon2Text: {
-    fontSize: 8,
-    color: '#12121295'
-  },
-  propDesCon2Dot: {
-    height: 2,
-    width: 2,
-    backgroundColor: '#12121295',
-    marginHorizontal: 5
-  },
-  propDesCon3: {
-    width: "100%",
-    display: 'flex',
-    alignItems: 'flex-end',
-    marginTop: 20
-  },
-  propDesCon3btn: {
-    width: 160,
-    backgroundColor: 'black',
-    height: 30,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  propDesCon3btnTxt: {
-    color: 'white',
-    fontSize: 8,
-    fontWeight: '500'
-
-  }
-})
-
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -426,5 +343,103 @@ const styles = StyleSheet.create({
     color: 'black',
 
   },
+  propList: {
+    display: 'flex',
+    flex: 1,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+  }
+  , propCon: {
+    padding: 12,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start'
+    ,
+  },
+  propConActive: {
+    borderWidth: 1,
+    borderColor: 'black',
+
+  },
+  propImg: {
+    height: 95,
+    width: 140
+  },
+  propImgActive: {
+    height: 130
+  },
+  propDesCon: {
+    display: 'flex',
+    flex: 1,
+    marginLeft: 10
+  }
+  , propDescHeading: {
+    fontSize: 12,
+    fontFamily: 'Butler',
+    letterSpacing: -0.7
+  },
+  propDescHeadingBol: {
+    fontFamily: 'ButlerBold',
+  },
+  propDesValCon1: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  propDesValInnerCon1: {
+    flex: 1,
+    marginTop: 20
+  },
+  propInnerKey: {
+    fontSize: 8,
+    color: '#12121260'
+  },
+  propInnerCon1Val: {
+    fontSize: 8,
+    fontWeight: '500'
+
+  },
+  propInnerCon1ValBold: {
+    color: '#12121280'
+  },
+  displayNone: {
+    display: 'none'
+  },
+  propDesCon2: {
+    display: 'flex',
+    flexDirection: 'row'
+    , marginTop: 20,
+    alignItems: 'center'
+  },
+  propDesCon2Text: {
+    fontSize: 8,
+    color: '#12121295'
+  },
+  propDesCon2Dot: {
+    height: 2,
+    width: 2,
+    backgroundColor: '#12121295',
+    marginHorizontal: 5
+  },
+  propDesCon3: {
+    width: "100%",
+    display: 'flex',
+    alignItems: 'flex-end',
+    marginTop: 20
+  },
+  propDesCon3btn: {
+    width: 160,
+    backgroundColor: 'black',
+    height: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  propDesCon3btnTxt: {
+    color: 'white',
+    fontSize: 8,
+    fontWeight: '500'
+
+  }
 
 });

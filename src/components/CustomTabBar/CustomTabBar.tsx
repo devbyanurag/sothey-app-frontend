@@ -82,13 +82,13 @@ const styles = StyleSheet.create({
         transform: [{ rotate: '-40deg' }]
     },
     tabBarIcon1Circle: {
-        height: 20,
-        width: 20,
+        height: 15,
+        width: 15,
         backgroundColor: '#ffffff80',
         borderRadius: 50,
     }
     , tabBarIcon1div: {
-        height: 6,
+        height: 5,
         width: 3,
         backgroundColor: '#ffffff80',
         marginTop: 3
@@ -99,13 +99,13 @@ const styles = StyleSheet.create({
     },
     tabBarIcon2up1: {
         backgroundColor: '#ffffff80',
-        height: 15,
+        height: 10,
         width: 3
     },
     tabBarIcon2up2: {
         backgroundColor: '#ffffff80',
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
         marginHorizontal: 2
 
     }, tabBarIcon2down: {
@@ -121,19 +121,19 @@ const styles = StyleSheet.create({
     },
     tabBarIcon3div1: {
         backgroundColor: '#ffffff80',
-        height: 20,
+        height: 10,
         width: 8,
         marginRight: 2
     },
     tabBarIcon3div2: {
         backgroundColor: '#ffffff80',
-        height: 27,
+        height: 20,
         width: 8,
     },
     tabBarIcon4div: {
         backgroundColor: '#ffffff80',
-        height: 10,
-        width: 20,
+        height: 5,
+        width: 16,
         borderTopRightRadius: 2,
         borderTopLeftRadius: 2
     },
@@ -141,9 +141,9 @@ const styles = StyleSheet.create({
     tabBarIcon4triangle: {
         width: 0,
         height: 0,
-        borderLeftWidth: 10,
-        borderRightWidth: 10,
-        borderBottomWidth: 20,
+        borderLeftWidth: 8,
+        borderRightWidth: 8,
+        borderBottomWidth: 16,
         borderLeftColor: '#ffffff80',
         borderRightColor: '#ffffff80',
         borderBottomColor: 'transparent',

@@ -21,7 +21,7 @@ export type PropertyType = {
     details: string[];
     featureFrag: number;
     description: string;
-    descriptionDetails: string;
+    descriptionDetails: string[];
     fundRaisingTimeline: string;
     pricePerShare: string;
     totalSpots: number;

@@ -14,7 +14,7 @@ const SplashScreen = (props: SplashScreenNavigationProp) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             props.navigation.replace('AuthScreen');
-        }, 3000);
+        }, 5000);
 
         const animation = Animated.loop(
             Animated.sequence([

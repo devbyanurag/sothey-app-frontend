@@ -10,6 +10,8 @@ import MainScreen from './src/screens/MainScreen/MainScreen';
 import PropertyOverViewScreen from './src/screens/PropertyOverViewScreen/PropertyOverViewScreen';
 
 
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import { useEffect } from 'react';
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,18 +27,21 @@ export default function App() {
     );
   }
 
+
+
   return (
     <NavigationContainer>
-      
-      <StatusBar
+      <StatusBar hidden />
+      {/* <StatusBar
         backgroundColor="#ffffff"
         barStyle="dark-content"
-      />
+      /> */}
       <Stack.Navigator>
-        <Stack.Screen name='MainScreen' component={MainScreen} options={{ headerShown: false }} />
         <Stack.Screen name='SplashScreen' component={SplashScreen} options={{ headerShown: false }} />
 
         <Stack.Screen name='AuthScreen' component={AuthScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='MainScreen' component={MainScreen} options={{ headerShown: false }} />
+
         <Stack.Screen name='PropertyOverViewScreen' component={PropertyOverViewScreen} options={{ headerShown: false }} />
 
 

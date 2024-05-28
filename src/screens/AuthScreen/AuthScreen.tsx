@@ -24,7 +24,7 @@ const AuthScreen = (props: AuthScreenProps) => {
                 <Text style={styles.textbtn2}>Sign in with Apple ID</Text>
             </TouchableOpacity>
             <Text style={styles.texthaveAcc}>Don’t have an account ? {' '}
-                <Text style={styles.signin} onPress={() => { props.navigation.replace('SplashScreen') }}>Sign in</Text>
+                <Text style={styles.signin} onPress={() => { props.navigation.replace('MainScreen') }}>Sign in</Text>
             </Text>
             <Text style={styles.bottomTC} >By creating an account, or signing in, you are agreeing to our  <Text style={styles.bottomTCinner}> Terms of Service </Text> and  <Text style={styles.bottomTCinner}> Privacy Policy.</Text></Text>
         </View>
