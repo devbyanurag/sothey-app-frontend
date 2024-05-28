@@ -1,20 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RootStackParamList } from './src/utils/types';
+import AuthScreen from './src/screens/AuthScreen/AuthScreen';
+import SplashScreen from './src/screens/SplashScreen/SplashScreen';
+import { useFonts } from 'expo-font';
+import customFonts from './src/utils/fonts'
+import { ActivityIndicator, StatusBar, StyleSheet, Text, View } from 'react-native';
+import MainScreen from './src/screens/MainScreen/MainScreen';
+import PropertyOverViewScreen from './src/screens/PropertyOverViewScreen/PropertyOverViewScreen';
+
+
+
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
+  let [fontsLoaded] = useFonts(customFonts);
+  if (!fontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      
+      <StatusBar
+        backgroundColor="#ffffff"
+        barStyle="dark-content"
+      />
+      <Stack.Navigator>
+        <Stack.Screen name='MainScreen' component={MainScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='SplashScreen' component={SplashScreen} options={{ headerShown: false }} />
+
+        <Stack.Screen name='AuthScreen' component={AuthScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='PropertyOverViewScreen' component={PropertyOverViewScreen} options={{ headerShown: false }} />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
+
 const styles = StyleSheet.create({
-  container: {
+  loadingContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 18,
   },
 });
