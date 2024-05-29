@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "sotheby",
-    "slug": "sotheby",
+    "slug": "sotheby-frontend",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/appicon.jpg",
@@ -12,16 +12,24 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anurag.sotheby"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/appicon.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anurag_chhetri.sothebyfrontend"
     },
     "web": {
       "favicon": "./assets/appicon.jpg"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d0d6043e-e660-4284-aeb0-b96e8f58f0e7"
+      }
+    },
+    "owner": "anurag_chhetri"
   }
 }
